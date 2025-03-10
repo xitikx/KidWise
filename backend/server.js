@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const storyRoutes = require('./routes/story');
 // const imageRoutes = require('./routes/image');
-// const ttsRoutes = require('./routes/tts');
+const ttsRoutes = require('./routes/tts');
 // const pdfRoutes = require('./routes/pdf');
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(express.json());
 // Microservice Routes
 app.use('/api/story', storyRoutes);
 // app.use('/api/image', imageRoutes);
-// app.use('/api/tts', ttsRoutes);
+app.use('/api/tts', ttsRoutes);
 // app.use('/api/pdf', pdfRoutes);
 
 
