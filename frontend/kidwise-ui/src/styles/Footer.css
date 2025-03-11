@@ -1,0 +1,50 @@
+/* Footer Styling */
+.footer {
+    background: #111; /* Deep matte black */
+color: #E17564; /* Matches KidWise logo */
+border-top: 2px solid #872341; /* Adds a stylish pop */
+
+
+
+    color: white;
+    padding: 10px 20px; /* Padding for spacing */
+    font-size: 0.8rem; /* Small font size */
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: space-between; /* Space between copyright and links */
+    align-items: center; /* Vertically center content */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+/* Footer Links Container */
+.footer .nav-links {
+    display: flex;
+    gap: 15px; /* Spacing between links */
+    flex-wrap: wrap; /* Allow links to wrap to the next line if needed */
+    justify-content: flex-end; /* Align links to the right */
+}
+
+/* Footer Link Buttons */
+.footer .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem; /* Small font size */
+    transition: color 0.3s, background 0.3s; /* Smooth transition for hover effects */
+    white-space: nowrap; /* Prevent text from wrapping within a link */
+    cursor: pointer; /* Ensure the cursor changes to a pointer on hover */
+    padding: 5px 10px; /* Add padding to make it look like a button */
+    border-radius: 4px; /* Add rounded corners */
+}
+
+.footer .nav-links a:hover {
+    color: #E17564; /* Change color on hover */
+    background: rgba(255, 255, 255, 0.1); /* Add a subtle background on hover */
+}
+
+/* Copyright Text */
+.footer-copyright {
+    font-size: 0.8rem; /* Small font size */
+    color: rgba(255, 255, 255, 0.7); /* Slightly muted color */
+    white-space: nowrap; /* Prevent text from wrapping */
+}

@@ -1,0 +1,64 @@
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: rgba(0, 0, 0, 0.8); */
+    background: #0D1B2A; /* Deep Midnight Blue */
+    color: #F0EDEE; /* Soft Off-White */
+    border-bottom: 2px solid #E63946; /* Subtle Red Glow */
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure the header does not clip content */
+.header * {
+    overflow: visible;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #E17564;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #E17564;
+}
+
+/* Avatar Image Styling */
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;  /* Prevents it from getting squeezed */
+}
+
+.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+
