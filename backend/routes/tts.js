@@ -15,8 +15,9 @@ router.post('/synthesize', async (req, res) => {
 
         res.set({
             'Content-Type': 'audio/mpeg',
-            'Content-Disposition': 'attachment; filename="speech.mp3"',
+            'Content-Disposition': 'inline; filename="speech.mp3"',
         });
+        
 
         res.send(audioStream);
     } catch (error) {
