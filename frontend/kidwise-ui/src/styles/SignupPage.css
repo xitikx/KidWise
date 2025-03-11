@@ -1,0 +1,145 @@
+/* src/styles/SignupPage.css */
+.signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #09122C, #872341); /* Consistent with LoginPage */
+    color: white;
+    text-align: center;
+    position: relative; /* Allows for absolute positioning of circles */
+  }
+  
+  /* Background Animation with Floating Circles */
+  .background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* To stay behind the signup content */
+  }
+  
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: float 10s infinite ease-in-out;
+  }
+  
+  .circle-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 20%;
+    animation-duration: 8s;
+  }
+  
+  .circle-2 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 70%;
+    animation-duration: 12s;
+  }
+  
+  .circle-3 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 40%;
+    animation-duration: 10s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  /* Signup Card */
+  .signup-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    position: relative; /* Content stays above the circles */
+    z-index: 1; /* Ensures signup card is above the floating circles */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .signup-card:hover {
+    transform: scale(1.05);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #E17564; /* Consistent color */
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #E17564; /* Consistent color */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #BE3144; /* Consistent color */
+  }
+  
+  p span {
+    color: #E17564; /* Consistent color */
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+  
+  p span:hover {
+    color: #BE3144; /* Consistent color */
+  }
+  
+  /* Floating Characters */
+  .floating-character {
+    position: absolute;
+    z-index: 5;
+  }
+  
+  .character-1 {
+    bottom: 10%;
+    left: 5%;
+    width: 350px; /* Adjust size as needed */
+  }
+  
+  
+  .floating-character img {
+    width: 100%;
+    height: auto;
+  }
