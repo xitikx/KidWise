@@ -1,0 +1,105 @@
+.story-display-page {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #09122C, #872341);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* .circle-1 {
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 10%;
+    left: 20%;
+}
+
+.circle-2 {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    bottom: 15%;
+    right: 25%;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    top: 50%;
+    left: 60%;
+} */
+
+.story-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.story-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.story-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.story-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.story-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.back-button, .listen-button {
+    background: #E17564;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.back-button:hover, .listen-button:hover {
+    background: #BE3144;
+    transform: scale(1.05);
+}
+
+.back-button:active, .listen-button:active {
+    transform: scale(0.95);
+}

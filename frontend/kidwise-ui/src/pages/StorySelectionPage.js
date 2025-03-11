@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 // import Header from '../components/Header';
 import '../styles/StorySelectionPage.css';
 import { motion } from 'framer-motion';
+import StoryDisplay from './StoryDisplayPage';
 
 const stories = [
     { title: 'The Brave Knight', prompt: 'A courageous knight embarks on a quest to save the kingdom.', image: require('../assets/braveKnight.jpg') },
@@ -14,34 +16,49 @@ const stories = [
     { title: 'The Flying Ship', prompt: 'A boy discovers a magical ship that sails through the clouds.', image: require('../assets/flyingShip.jpg') }
 ];
 
-const StorySelection = ({ onStorySelect }) => {
+const StorySelection = () => {
+    const [selectedStory, setSelectedStory] = useState(null);
+
+    const handleStorySelect = (story) => {
+        setSelectedStory(story);
+    };
+
+    const handleBack = () => {
+        setSelectedStory(null);  // Go back to story selection
+    };
+
     return (
         <div className="story-selection-page">
-            {/* <Header /> */}
-            <motion.div
-                className="background-animation"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <div className="circle circle-1"></div>
-                <div className="circle circle-2"></div>
-                <div className="circle circle-3"></div>
-            </motion.div>
-            <main className="story-grid">
-                {stories.map((story, index) => (
-                    <motion.div 
-                        key={index} 
-                        className="story-card"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => onStorySelect(story.prompt)}
+            {selectedStory ? (
+                <StoryDisplay story={selectedStory} onBack={handleBack} />
+            ) : (
+                <>
+                    <motion.div
+                        className="background-animation"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
                     >
-                        <img src={story.image} alt={story.title} className="story-thumbnail" />
-                        <h3>{story.title}</h3>
+                        <div className="circle circle-1"></div>
+                        <div className="circle circle-2"></div>
+                        <div className="circle circle-3"></div>
                     </motion.div>
-                ))}
-            </main>
+                    <main className="story-grid">
+                        {stories.map((story, index) => (
+                            <motion.div 
+                                key={index} 
+                                className="story-card"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => handleStorySelect(story)}
+                            >
+                                <img src={story.image} alt={story.title} className="story-thumbnail" />
+                                <h3>{story.title}</h3>
+                            </motion.div>
+                        ))}
+                    </main>
+                </>
+            )}
         </div>
     );
 };
