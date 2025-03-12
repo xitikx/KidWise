@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import StorySelectionPage from './pages/StorySelectionPage';
 import StoryDisplayPage from './pages/StoryDisplayPage';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const AppContent = () => {
 
   return (
     <>
+    {(location.pathname === '/home' || location.pathname === '/story-display' || location.pathname === '/story-selection') && <Header />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -31,7 +33,8 @@ const AppContent = () => {
       </Routes>
 
       {/* Show Footer only on the HomePage */}
-      {location.pathname === '/home' && <Footer />}
+      {(location.pathname === '/home' || location.pathname === '/story-display' || location.pathname === '/story-selection') && <Footer />}
+      
     </>
   );
 };

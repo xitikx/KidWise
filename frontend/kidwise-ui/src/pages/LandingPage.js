@@ -41,7 +41,7 @@ const LandingPage = () => {
             whileTap={{ scale: 0.95 }}
           >
             <h2>Explore Realms</h2>
-            <p>Lorem Ipsum </p>
+            <p>Step into vibrant worlds where stories come to life and every turn holds a new adventure!</p>
           </div>
 
           <div
@@ -49,8 +49,8 @@ const LandingPage = () => {
             whileHover={{ scale: 1.05, rotate: -2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <h2>Lorem</h2>
-            <p>Lorem Ipsum</p>
+            <h2>Create Your Story</h2>
+            <p>Let your imagination soar as you craft your own magical story and share it with the world.</p>
           </div>
 
           <div
@@ -58,8 +58,8 @@ const LandingPage = () => {
             whileHover={{ scale: 1.05, rotate: 2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <h2>Lorem</h2>
-            <p>Lorem Ipsum</p>
+            <h2>Interactive Learning</h2>
+            <p>Learn through play with engaging stories and lessons that will ignite a love for knowledge.</p>
           </div>
         </div>
 

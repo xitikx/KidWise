@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import '../styles/HomePage.css';
 import { motion } from 'framer-motion';
 import wizardImage from '../assets/wizard.png';
+import RobotLetter from '../assets/robotLetter.jpg'
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <Header />
+      {/* <Header /> */}
       <motion.div
         className="background-animation"
         initial={{ opacity: 0 }}
@@ -39,6 +40,15 @@ const HomePage = () => {
           </div>
         </div>
       </main>
+
+      <motion.div
+        className="floating-character character-9"
+        initial={{ y: 0 }}
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        >
+          <img src={RobotLetter} alt="Wizard" />
+        </motion.div>
     </div>
   );
 };

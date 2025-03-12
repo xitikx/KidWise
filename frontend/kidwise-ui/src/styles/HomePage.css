@@ -121,6 +121,16 @@
     animation-duration: 10s;
 }
 
+.floating-character {
+    position: absolute;
+    z-index: 5;
+  }
+
+  .character-9 {
+    bottom: 10%;
+    left: 5.5%;
+    width: 300px; 
+  }
 /* Floating Effect */
 @keyframes float {
     0% { transform: translateY(0); }
