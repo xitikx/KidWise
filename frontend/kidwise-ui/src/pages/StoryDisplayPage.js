@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { motion } from 'framer-motion';
 import "../styles/StoryDisplayPage.css";
+import RobotInfo from '../assets/robotInfo.jpg';
+import RobotAngry from '../assets/robotAngry.jpg';
 
 const StoryDisplayPage = () => {
     const { state } = useLocation();
@@ -66,6 +69,16 @@ const StoryDisplayPage = () => {
         <div className="story-display-page">
             <h1>{title}</h1>
             <h3>{prompt}</h3>
+            <motion.div
+        className="background-animation"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="circle circle-1"></div>
+        <div className="circle circle-2"></div>
+        <div className="circle circle-3"></div>
+      </motion.div>
 
             <div className="story-content">
                 {Object.keys(storyParts).map((part, index) => {
@@ -95,6 +108,22 @@ const StoryDisplayPage = () => {
                     );
                 })}
             </div>
+            <motion.div
+                className="floating-character character-10"
+                initial={{ y: 0 }}
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+                <img src={RobotInfo} alt="Wizard" />
+            </motion.div>
+            <motion.div
+                className="floating-character character-11"
+                initial={{ y: 0 }}
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+                <img src={RobotAngry} alt="Wizard" />
+            </motion.div>
         </div>
     );
 };

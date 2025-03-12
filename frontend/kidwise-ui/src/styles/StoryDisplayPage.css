@@ -26,7 +26,7 @@
     opacity: 0.5;
 }
 
-/* .circle-1 {
+.circle-1 {
     width: 150px;
     height: 150px;
     background: rgba(255, 255, 255, 0.2);
@@ -48,7 +48,24 @@
     background: rgba(255, 255, 255, 0.1);
     top: 50%;
     left: 60%;
-} */
+}
+
+.floating-character {
+    position: absolute;
+    z-index: 5;
+  }
+
+.character-10 {
+    bottom: 10%;
+    left: 5.5%;
+    width: 300px; 
+}
+
+.character-11 {
+    bottom: 90%;
+    right: 5%;
+    width: 350px;
+}
 
 .story-content {
     position: relative;
