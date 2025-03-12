@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { motion } from 'framer-motion';
 import "../styles/StoryDisplayPage.css";
+import LoadingPage from "../components/LoadingPage";
 import RobotInfo from '../assets/robotInfo.jpg';
 import RobotAngry from '../assets/robotAngry.jpg';
 
@@ -58,7 +59,7 @@ const StoryDisplayPage = () => {
     };
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <LoadingPage />;
     }
 
     if (error) {
