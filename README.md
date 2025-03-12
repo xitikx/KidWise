@@ -1,19 +1,35 @@
-<h1>KidWise - Interactive Storytelling Platform</h1>
-    <h2>📖 Overview</h2>
-    <p>KidWise is an engaging and interactive storytelling platform that generates AI-powered stories, images, and voice narrations for children.</p>
-    
-    <h2>🚀 Features</h2>
-    <ul>
-        <li>Generate AI-powered stories based on user prompts</li>
-        <li>AI-generated images for story visualization</li>
-        <li>Text-to-speech narration for immersive storytelling</li>
-        <li>Simple and kid-friendly UI</li>
-    </ul>
-    
-    <h2>🛠️ Tech Stack</h2>
-    <ul>
-        <li><strong>Frontend:</strong> React, Material UI</li>
-        <li><strong>Backend:</strong> Node.js, Express</li>
-        <li><strong>AI Services:</strong> Hugging Face for text & image generation, AWS Polly for TTS</li>
-        <li><strong>Deployment:</strong> AWS (backend), Netlify (frontend)</li>
-    </ul>
+KidWise - Interactive Storytelling Platform
+
+📖 Overview
+
+KidWise is an interactive storytelling platform designed to provide a magical learning experience for children. The platform generates engaging stories, accompanied by AI-generated images and voice narration, making storytelling immersive and fun!
+
+🚀 Features
+
+AI-Generated Stories: Automatically generates creative and engaging children's stories.
+
+Dynamic Illustrations: AI-powered image generation for each part of the story.
+
+Voice Narration: Text-to-speech (TTS) functionality brings stories to life.
+
+User-Friendly Interface: Simple and intuitive UI for easy navigation.
+
+🛠️ Tech Stack
+
+Frontend
+
+React
+
+Material UI
+
+Netlify (Deployment)
+
+Backend
+
+Node.js with Express
+
+Hugging Face API (Story & Image Generation)
+
+AWS Polly (Text-to-Speech)
+
+AWS (Deployment)
