@@ -8,7 +8,7 @@ async function generateStory(prompt) {
         const response = await axios.post(
             "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct",
             { 
-                inputs: `Write a complete children's story based on: "${prompt}". The story should be engaging and suitable for children.`
+                inputs: prompt // Sending only the prompt without extra text
             },
             {
                 headers: { 
@@ -22,10 +22,15 @@ async function generateStory(prompt) {
             throw new Error("Invalid response from AI");
         }
 
-        return response.data[0].generated_text.trim(); // Return the full story
+        let story = response.data[0].generated_text.trim();
+
+        // Remove any leading prompt-like text from the story
+        story = story.replace(/^.*?[.!?]\s*/, '');
+
+        return story;
     } catch (error) {
         console.error("❌ Error generating story:", error.response ? error.response.data : error.message);
-        return "Error generating story"; // Return an error message instead of failing completely
+        return "Error generating story";
     }
 }
 

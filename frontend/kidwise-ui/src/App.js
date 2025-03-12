@@ -4,8 +4,9 @@ import LandingPage from './pages/LandingPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
-// import AboutPage from './pages/AboutPage';
-import Footer from './components/Footer'; // Import Footer
+import StorySelectionPage from './pages/StorySelectionPage';
+import StoryDisplayPage from './pages/StoryDisplayPage';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
 };
 
 const AppContent = () => {
-  const location = useLocation(); // Get current route
+  const location = useLocation();
 
   return (
     <>
@@ -25,7 +26,8 @@ const AppContent = () => {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
-        {/* <Route path="/about" element={<AboutPage />} /> */}
+        <Route path="/story-selection" element={<StorySelectionPage />} />
+        <Route path="/story-display" element={<StoryDisplayPage />} />
       </Routes>
 
       {/* Show Footer only on the HomePage */}

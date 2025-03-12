@@ -28,6 +28,12 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: "Internal Server Error", details: err.message });
 });
 
+app.use(cors({
+    origin: 'http://localhost:3000',  // Or any other domain your frontend is hosted on
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+  }));
+
 const PORT = process.env.PORT || 5000;
 
 console.log("✅ Registered Routes:");

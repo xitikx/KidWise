@@ -1,102 +1,100 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import '../styles/StoryDisplay.css';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import "../styles/StoryDisplayPage.css";
 
 const StoryDisplayPage = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { storyData } = location.state || {};
-
-    const [storyParts, setStoryParts] = useState([]);
-    const [images, setImages] = useState([]);
-    const [voices, setVoices] = useState([]);
+    const { state } = useLocation();
+    const { title, prompt, storyParts } = state || {}; // Destructure the necessary data
+    const [images, setImages] = useState({});
+    const [audioUrls, setAudioUrls] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [currentPart, setCurrentPart] = useState(0);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!storyData) {
-            navigate('/story-selection');
+        if (!storyParts) {
+            setError("Story parts not found.");
+            setLoading(false);
             return;
         }
-        fetchStoryAndAssets();
-    }, [storyData]);
 
-    const fetchStoryAndAssets = async () => {
-        try {
-            // Step 1: Fetch the story parts
-            const storyResponse = await fetch('http://localhost:5000/api/story/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: storyData.prompt })
-            });
-            const storyResult = await storyResponse.json();
-            setStoryParts(storyResult.parts);
+        const fetchData = async () => {
+            try {
+                // Fetch image data
+                const imageResponse = await axios.post("http://localhost:5000/api/image/generate", storyParts);
+                console.log("Image response:", imageResponse.data);
 
-            // Step 2: Fetch images
-            const imageResponse = await fetch('http://localhost:5000/api/image/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompts: storyResult.parts })
-            });
-            const imageResult = await imageResponse.json();
-            setImages(imageResult.imageUrls);
+                // Fetch audio data for each part of the story
+                const audioPromises = Object.values(storyParts).map(async (textPart) => {
+                    const response = await axios.post("http://localhost:5000/api/tts/synthesize", { text: textPart }, { responseType: 'arraybuffer' });
+                    const audioBlob = new Blob([response.data], { type: 'audio/mpeg' });
+                    const audioUrl = URL.createObjectURL(audioBlob);  // Create URL from the Blob
+                    return audioUrl;
+                });
 
-            // Step 3: Fetch voice clips
-            const voiceClips = await Promise.all(
-                storyResult.parts.map(async (part) => {
-                    const voiceResponse = await fetch('http://localhost:5000/api/tts/synthesize', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ text: part })
-                    });
-                    const voiceData = await voiceResponse.json();
-                    return voiceData.voiceUrl;
-                })
-            );
-            setVoices(voiceClips);
-        } catch (error) {
-            console.error('Error fetching story assets:', error);
-        } finally {
-            setLoading(false);
+                // Wait for all audio and images to be fetched
+                const audioUrls = await Promise.all(audioPromises);
+                setAudioUrls(audioUrls); // Store the audio URLs in state
+                setImages(imageResponse.data || {}); // Store image data
+                setLoading(false);
+            } catch (error) {
+                setError("Error fetching story images or audio.");
+                setLoading(false);
+                console.error("Error:", error);
+            }
+        };
+
+        fetchData(); // Call the fetchData function when the component mounts
+    }, [storyParts]); // Re-run when storyParts change
+
+    const handleAudioPlay = (index) => {
+        const audioElement = document.getElementById(`audio-${index}`);
+        if (audioElement) {
+            audioElement.play(); // Play the audio corresponding to the part
         }
     };
 
-    const playVoice = () => {
-        if (voices[currentPart]) {
-            new Audio(voices[currentPart]).play();
-        }
-    };
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    const nextPart = () => {
-        if (currentPart < storyParts.length - 1) {
-            setCurrentPart(currentPart + 1);
-        }
-    };
-
-    const prevPart = () => {
-        if (currentPart > 0) {
-            setCurrentPart(currentPart - 1);
-        }
-    };
-
-    if (loading) return <div className="loading-overlay">Loading story...</div>;
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <div className="story-display-page">
-            <Header />
-            <main className="story-content">
-                <h2>{storyData.title}</h2>
-                <img src={images[currentPart]} alt={`Story part ${currentPart + 1}`} className="story-image" />
-                <p>{storyParts[currentPart]}</p>
-                <div className="controls">
-                    <button onClick={prevPart} disabled={currentPart === 0}>Back</button>
-                    <button onClick={playVoice}>Listen</button>
-                    <button onClick={nextPart} disabled={currentPart === storyParts.length - 1}>Next</button>
-                </div>
-            </main>
-            <Footer />
+            <h1>{title}</h1>
+            <h3>{prompt}</h3>
+
+            <div className="story-content">
+                {Object.keys(storyParts).map((part, index) => {
+                    const imageKey = `${part}Image`; // Dynamic image key
+                    const voiceUrl = audioUrls[index]; // Get the corresponding audio URL
+
+                    return (
+                        <div key={index} className="story-part">
+                            <h2>{part.charAt(0).toUpperCase() + part.slice(1)}</h2>
+                            {images[imageKey] ? (
+                                <img src={images[imageKey]} alt={part} className="story-image" />
+                            ) : (
+                                <p>Loading {part} image...</p>
+                            )}
+                            <p>{storyParts[part]}</p>
+                            {voiceUrl ? (
+                                <audio
+                                    id={`audio-${index}`}
+                                    src={voiceUrl}
+                                    controls
+                                    onPlay={() => handleAudioPlay(index)}
+                                />
+                            ) : (
+                                <p>Loading {part} audio...</p>
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };
