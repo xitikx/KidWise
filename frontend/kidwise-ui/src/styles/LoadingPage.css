@@ -11,7 +11,7 @@
     animation: fadeIn 1.5s ease-in-out;
 }
 
-h2 {
+.loading-container h2 {
     font-size: 2rem;
     font-weight: bold;
     color: #E17564;
