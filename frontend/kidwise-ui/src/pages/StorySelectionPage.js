@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 const stories = [
     { title: "The Brave Knight", prompt: "A brave knight", image: require("../assets/braveKnight.jpg") },
     { title: "Space Adventure", prompt: "A space Adventure", image: require("../assets/spaceAdventure.jpg") },
-    { title: "The Lost Treasure", prompt: "A pirate searches for hidden treasure on a deserted island.", image: require("../assets/lostTreasure.jpg") },
-    { title: "Magical Forest", prompt: "A young girl befriends talking animals in an enchanted forest.", image: require("../assets/magicForest.jpg") },
-    { title: "The Time Machine", prompt: "A scientist travels to the future and uncovers secrets of time.", image: require("../assets/timeMachine.jpg") },
-    { title: "Underwater Kingdom", prompt: "A diver explores the deep ocean and meets mystical sea creatures.", image: require("../assets/waterKingdom.jpg") },
-    { title: "Robot’s Dream", prompt: "A friendly robot wishes to become human and goes on a journey.", image: require("../assets/robotDream.jpg") },
-    { title: "The Flying Ship", prompt: "A boy discovers a magical ship that sails through the clouds.", image: require("../assets/flyingShip.jpg") }
+    { title: "The Lost Treasure", prompt: "The lost treasure", image: require("../assets/lostTreasure.jpg") },
+    { title: "Magical Forest", prompt: "A magical forest", image: require("../assets/magicForest.jpg") },
+    { title: "The Time Machine", prompt: "The time machine", image: require("../assets/timeMachine.jpg") },
+    { title: "Underwater Kingdom", prompt: "Underwater Kingdom", image: require("../assets/waterKingdom.jpg") },
+    { title: "Robot’s Dream", prompt: "A robot's dream", image: require("../assets/robotDream.jpg") },
+    { title: "The Flying Ship", prompt: "A flying ship", image: require("../assets/flyingShip.jpg") }
 ];
 
 const StorySelectionPage = () => {
