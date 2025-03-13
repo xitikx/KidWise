@@ -29,7 +29,9 @@
 
 .main-content h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    margin-top: 100px;
+    z-index: 10;
 }
 
 /* Realm Modal */
@@ -45,6 +47,8 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     justify-content: space-between;
     gap: 20px; /* Add spacing between image and content */
+    margin-top: 30px;
+    margin-bottom: auto;
 }
 
 /* Wizard Image in Modal */
@@ -127,9 +131,9 @@
   }
 
   .character-9 {
-    bottom: 10%;
-    left: 4.6%;
-    width: 370px; 
+    bottom: 7%;
+    left: 1%;
+    width: 340px; 
   }
 /* Floating Effect */
 @keyframes float {
