@@ -5,8 +5,8 @@ import "../styles/StorySelectionPage.css";
 import { motion } from "framer-motion";
 
 const stories = [
-    { title: "The Brave Knight", prompt: "A courageous knight embarks on a quest to save the kingdom.", image: require("../assets/braveKnight.jpg") },
-    { title: "Space Adventure", prompt: "An astronaut discovers a new planet filled with mysteries.", image: require("../assets/spaceAdventure.jpg") },
+    { title: "The Brave Knight", prompt: "A brave knight", image: require("../assets/braveKnight.jpg") },
+    { title: "Space Adventure", prompt: "A space Adventure", image: require("../assets/spaceAdventure.jpg") },
     { title: "The Lost Treasure", prompt: "A pirate searches for hidden treasure on a deserted island.", image: require("../assets/lostTreasure.jpg") },
     { title: "Magical Forest", prompt: "A young girl befriends talking animals in an enchanted forest.", image: require("../assets/magicForest.jpg") },
     { title: "The Time Machine", prompt: "A scientist travels to the future and uncovers secrets of time.", image: require("../assets/timeMachine.jpg") },

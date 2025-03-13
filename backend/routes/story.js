@@ -8,7 +8,8 @@ async function generateStory(prompt) {
         const response = await axios.post(
             "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct",
             { 
-                inputs: prompt // Sending only the prompt without extra text
+                // inputs: prompt
+                inputs: `Write a complete, engaging, and suitable children's story with minimum word count 150 based on: "${prompt}"`
             },
             {
                 headers: { 
@@ -25,7 +26,7 @@ async function generateStory(prompt) {
         let story = response.data[0].generated_text.trim();
 
         // Remove any leading prompt-like text from the story
-        story = story.replace(/^.*?[.!?]\s*/, '');
+        story = story.replace(`Write a complete, engaging, and suitable children's story with minimum word count 150 based on: "${prompt}"\n`, '');
 
         return story;
     } catch (error) {
