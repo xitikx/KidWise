@@ -1,50 +1,137 @@
-/* Footer Styling */
+/* Footer Base Styling */
 .footer {
-    background: #111; /* Deep matte black */
-color: #E17564; /* Matches KidWise logo */
-border-top: 2px solid #872341; /* Adds a stylish pop */
-
-
-
+    position: relative;
+    background: linear-gradient(90deg, #1B1F38, #872341); /* Dark Blue to Red */
     color: white;
-    padding: 10px 20px; /* Padding for spacing */
-    font-size: 0.8rem; /* Small font size */
-    width: 100%; /* Full width */
+    padding: 20px 40px;
+    font-size: 0.9rem;
+    width: 100%;
     display: flex;
-    justify-content: space-between; /* Space between copyright and links */
-    align-items: center; /* Vertically center content */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-    overflow: hidden; /* Prevent content from overflowing */
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(45deg, #E17564, #FFD700, #872341);
+    border-image-slice: 1;
+    
+    /* ✅ FIXED: Footer is now always visible */
+    opacity: 1;
+    transform: translateY(0);
+    /* animation: fadeInBounce 1s ease-in-out, colorShift 8s infinite linear; */
+    z-index: 10;
 }
 
-/* Footer Links Container */
+/* Auto-Changing Gradient */
+@keyframes colorShift {
+    0% { background: linear-gradient(90deg, #1B1F38, #872341); }
+    50% { background: linear-gradient(90deg, #872341, #E17564); }
+    100% { background: linear-gradient(90deg, #1B1F38, #872341); }
+}
+
+/* Footer Wave */
+.footer-wave {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, #872341, transparent);
+    animation: waveAnimation 6s infinite ease-in-out;
+    z-index: -1;
+}
+
+/* Footer Links */
 .footer .nav-links {
     display: flex;
-    gap: 15px; /* Spacing between links */
-    flex-wrap: wrap; /* Allow links to wrap to the next line if needed */
-    justify-content: flex-end; /* Align links to the right */
+    gap: 15px;
 }
 
-/* Footer Link Buttons */
 .footer .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 0.8rem; /* Small font size */
-    transition: color 0.3s, background 0.3s; /* Smooth transition for hover effects */
-    white-space: nowrap; /* Prevent text from wrapping within a link */
-    cursor: pointer; /* Ensure the cursor changes to a pointer on hover */
-    padding: 5px 10px; /* Add padding to make it look like a button */
-    border-radius: 4px; /* Add rounded corners */
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 .footer .nav-links a:hover {
-    color: #E17564; /* Change color on hover */
-    background: rgba(255, 255, 255, 0.1); /* Add a subtle background on hover */
+    color: #FFD700;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
-/* Copyright Text */
-.footer-copyright {
-    font-size: 0.8rem; /* Small font size */
-    color: rgba(255, 255, 255, 0.7); /* Slightly muted color */
-    white-space: nowrap; /* Prevent text from wrapping */
+/* Floating Icons */
+.footer-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.5s ease-in-out, opacity 0.3s;
+    animation: floatIcons 3s infinite ease-in-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    color: #FFD700;
+}
+
+/* Floating Icon Animation */
+@keyframes floatIcons {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Sparkles Effect */
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.sparkles span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatingSparkles 3s linear infinite;
+}
+
+.sparkles span:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-duration: 4s;
+}
+
+.sparkles span:nth-child(2) {
+    top: 50%;
+    left: 60%;
+    animation-duration: 5s;
+}
+
+.sparkles span:nth-child(3) {
+    top: 80%;
+    left: 30%;
+    animation-duration: 3s;
+}
+
+@keyframes floatingSparkles {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.5; }
+    100% { transform: translateY(-40px) scale(0); opacity: 0; }
 }
