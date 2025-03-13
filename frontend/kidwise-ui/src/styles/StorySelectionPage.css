@@ -15,7 +15,9 @@
     padding: 40px 20px;
     justify-content: center;
     max-width: 1200px;
-    margin: auto;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .story-card {
