@@ -89,3 +89,35 @@
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
 }
+
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 30px 15px;
+    }
+
+    .story-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+        gap: 5px;
+    }
+
+    .story-card {
+        margin: 20px;
+        padding: 12px;
+    }
+
+    .story-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .story-thumbnail {
+        border-radius: 8px;
+    }
+}
