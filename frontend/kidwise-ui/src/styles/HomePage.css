@@ -141,3 +141,93 @@
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0); }
 }
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+    .main-content {
+      padding: 16px;
+      gap: 16px;
+    }
+  
+    .main-content h1 {
+      font-size: 1.6rem;
+      margin-top: 80px;
+    }
+  
+    .realm-modal {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      width: 90%;
+    }
+  
+    .realm-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .realm-content {
+      text-align: center;
+    }
+  
+    .realm-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .realm-content p {
+      font-size: 1rem;
+    }
+  
+    .explore-button {
+      font-size: 1rem;
+      padding: 10px 16px;
+      width: 100%;
+      max-width: 250px;
+    }
+  
+    .character-9 {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0%;
+        width: 180px;
+      }
+  }
+  
+  /* Phones and extra small screens */
+  @media (max-width: 480px) {
+    .main-content h1 {
+      font-size: 1.4rem;
+      margin-top: 100px;
+    }
+  
+    .realm-modal {
+      padding: 20px;
+      gap: 15px;
+    }
+  
+    .realm-image {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .realm-content h2 {
+      font-size: 1.3rem;
+    }
+  
+    .realm-content p {
+      font-size: 0.95rem;
+    }
+  
+    .explore-button {
+      font-size: 0.95rem;
+      padding: 10px 14px;
+    }
+  
+    .character-9 {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0%;
+        width: 180px;
+      }
+  }
+  

@@ -98,3 +98,29 @@
         opacity: 0.2;
     }
 }
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+    .nav-links {
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 10px;
+      padding: 8px 0;
+      scrollbar-width: none; /* Firefox */
+    }
+  
+    .nav-links::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+  
+    .nav-links a {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      flex-shrink: 0; /* Prevents shrinking on small screens */
+    }
+    .brand-name {
+        margin-right: 15px;
+    }
+  }
+  
+  

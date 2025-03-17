@@ -135,3 +135,21 @@
     50% { transform: translateY(-20px) scale(1.2); opacity: 0.5; }
     100% { transform: translateY(-40px) scale(0); opacity: 0; }
 }
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .footer-icons .icon {
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+
+@media (max-width: 600px) {
+    .footer .nav-links {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  
