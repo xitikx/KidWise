@@ -116,3 +116,74 @@
     width: 100%;
     height: auto;
   }
+
+  /* Existing styles above remain unchanged */
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .character-4 {
+    bottom: 35%;
+    left: 2%;
+    width: 160px;
+  }
+
+  .character-5 {
+    bottom: 10%;
+    right: 2%;
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .character-4,
+  .character-5 {
+    display: none; /* Hide floating characters on very small screens for better focus and less clutter */
+  }
+}
