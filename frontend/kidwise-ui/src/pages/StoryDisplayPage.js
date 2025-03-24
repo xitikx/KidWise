@@ -25,12 +25,12 @@ const StoryDisplayPage = () => {
         const fetchData = async () => {
             try {
                 // Fetch image data
-                const imageResponse = await axios.post("http://localhost:5000/api/image/generate", storyParts);
+                const imageResponse = await axios.post("https://kidwise-production.up.railway.app/api/image/generate", storyParts);
                 console.log("Image response:", imageResponse.data);
 
                 // Fetch audio data for each part of the story
                 const audioPromises = Object.values(storyParts).map(async (textPart) => {
-                    const response = await axios.post("http://localhost:5000/api/tts/synthesize", { text: textPart }, { responseType: 'arraybuffer' });
+                    const response = await axios.post("https://kidwise-production.up.railway.app/api/tts/synthesize", { text: textPart }, { responseType: 'arraybuffer' });
                     const audioBlob = new Blob([response.data], { type: 'audio/mpeg' });
                     const audioUrl = URL.createObjectURL(audioBlob);  // Create URL from the Blob
                     return audioUrl;
