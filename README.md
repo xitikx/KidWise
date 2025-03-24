@@ -26,7 +26,7 @@ The platform generates **engaging AI-powered stories** accompanied by **illustra
 - Node.js with Express 🟢  
 - AWS Polly (Text-to-Speech) 🎙️  
 - Hugging Face/Gemini (Story & Image Generation) 🖼️  
-- AWS (Hosting) ☁️  
+- Railway (Hosting) ☁️  
 
 ---
 
