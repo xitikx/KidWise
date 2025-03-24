@@ -25,7 +25,7 @@ const StorySelectionPage = () => {
         setError(null);
         try {
             // Make API call to generate story using the selected prompt
-            const response = await axios.post("http://localhost:5000/api/story/generate", { prompt: story.prompt });
+            const response = await axios.post("https://kidwise-production.up.railway.app/api/story/generate", { prompt: story.prompt });
             const storyParts = response.data.storyParts; // API response containing the 4 story parts
 
             console.log("Generated story parts:", storyParts); // Debugging step to verify the response
