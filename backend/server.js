@@ -12,7 +12,7 @@ const ttsRoutes = require('./routes/tts');
 const app = express();
 // app.use(cors());
 app.use(cors({
-    origin: 'https://kidwise.netlify.app/*',  // Or any other domain your frontend is hosted on
+    origin: 'https://kidwise.netlify.app',  // Or any other domain your frontend is hosted on
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
   }));
