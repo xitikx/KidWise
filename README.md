@@ -1,5 +1,4 @@
 # KidWise - Interactive Storytelling Platform 🎭📖
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-blue?style=for-the-badge)](https://kidwise.netlify.app/)
 
 ## 📚 Overview
 KidWise is an **interactive storytelling platform** designed to provide a magical learning experience for children.  
@@ -19,19 +18,14 @@ The platform generates **engaging AI-powered stories** accompanied by **illustra
 
 ### **Frontend**  
 - React ⚛️  
-- Material UI 🎨  
-- Netlify (Deployment) 🚀  
+- Material UI 🎨    
 
 ### **Backend**  
 - Node.js with Express 🟢  
 - AWS Polly (Text-to-Speech) 🎙️  
-- Hugging Face/Gemini (Story & Image Generation) 🖼️  
-- Railway (Hosting) ☁️  
+- Hugging Face (Story & Image Generation) 🖼️  
 
 ---
-
-## 🌐 Live Demo
-🎉 *Try it out here:* 👉 [KidWise.netlify.app](https://kidwise.netlify.app/) 🚀 
 
 1️⃣ **Story Selection** - Users select a story from a collection or generate a new one.  
 2️⃣ **AI Processing** - The backend generates the story, images, and voice narration.  
