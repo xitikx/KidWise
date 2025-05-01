@@ -6,7 +6,7 @@ const router = express.Router();
 async function generateStory(prompt) {
     try {
         const response = await axios.post(
-            "https://api-inference.huggingface.co/models/tiiuae/falcon-rw-1b",
+            "https://api-inference.huggingface.co/models/tiiuae/falcon-7b",
             { 
                 // inputs: prompt
                 inputs: `Write a complete, engaging, and suitable children's story with minimum word count 200 based on: "${prompt}"`
