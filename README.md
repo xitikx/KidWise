@@ -31,7 +31,7 @@ KidWise is an interactive storytelling web application designed for kids, featur
   - **AWS Polly**: Synthesizes high-quality audio from story text, creating an immersive listening experience for each story part.
 - **AI Services**:
   - Gemini (story generation)
-  - Stable Diffusion 3.5 Large via Hugging Face API (`https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large`) (image generation)
+  - Stable Diffusion 3.5 Large via Hugging Face API (image generation)
 - **Other**:
   - AWS SDK for JavaScript (for interacting with Step Functions in the frontend)
   - Environment variables (via `.env` for local development)
