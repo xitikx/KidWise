@@ -1,0 +1,243 @@
+/* Ensure the background covers the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #09122C, #872341); /* Fallback in case story-display-page doesn't cover */
+}
+
+.story-display-page {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #09122C, #872341);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px 20px; /* Removed margin-bottom, adjusted padding */
+    box-sizing: border-box;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.circle-1 {
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 10%;
+    left: 20%;
+}
+
+.circle-2 {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    bottom: 15%;
+    right: 25%;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    top: 50%;
+    left: 60%;
+}
+
+.floating-character {
+    position: absolute;
+    z-index: 5;
+}
+
+.character-10 {
+    bottom: 10%;
+    left: 5.5%;
+    width: 300px;
+}
+
+.character-11 {
+    bottom: 56%;
+    right: 5%;
+    width: 350px;
+}
+
+.story-content {
+    position: relative;
+    z-index: 2;
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    margin-top: 55px;
+}
+
+.story-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.story-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.story-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.story-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.back-button, .listen-button {
+    background: #E17564;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.back-button:hover, .listen-button:hover {
+    background: #BE3144;
+    transform: scale(1.05);
+}
+
+.back-button:active, .listen-button:active {
+    transform: scale(0.95);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .story-display-page {
+        padding: 70px 10px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .circle-1 {
+        width: 100px;
+        height: 100px;
+        top: 5%;
+        left: 10%;
+    }
+
+    .circle-2 {
+        width: 150px;
+        height: 150px;
+        bottom: 10%;
+        right: 15%;
+    }
+
+    .circle-3 {
+        width: 80px;
+        height: 80px;
+        top: 60%;
+        left: 70%;
+    }
+
+    .character-10 {
+        width: 150px; /* Reduce size on smaller screens */
+        bottom: 5%;
+        left: 2%;
+    }
+
+    .character-11 {
+        width: 175px;
+        bottom: 50%;
+        right: 2%;
+    }
+
+    .story-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .story-title {
+        font-size: 1.5rem;
+    }
+
+    .story-text {
+        font-size: 1rem;
+    }
+
+    .story-image {
+        max-width: 100%;
+    }
+
+    .back-button, .listen-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-display-page {
+        padding: 60px 5px 5px;
+    }
+
+    .circle-1 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle-2 {
+        width: 120px;
+        height: 120px;
+    }
+
+    .circle-3 {
+        width: 60px;
+        height: 60px;
+    }
+
+    .character-10 {
+        width: 120px;
+        bottom: 3%;
+        left: 1%;
+    }
+
+    .character-11 {
+        width: 140px;
+        bottom: 45%;
+        right: 1%;
+    }
+
+    .story-title {
+        font-size: 1.2rem;
+    }
+
+    .story-text {
+        font-size: 0.9rem;
+    }
+
+    .back-button, .listen-button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}

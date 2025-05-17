@@ -1,0 +1,189 @@
+/* src/styles/LandingPage.css */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #09122C, #872341); /* Gradient Background */
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  
+  /* Main Content */
+  .landing-content {
+    position: relative;
+    z-index: 4;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1 span {
+    /* color: #FFDB5C; */
+    color: #BE3144;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Feature Cards */
+  .feature-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #FFDB5C;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Call-to-Action Buttons */
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #E17564;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  button:hover {
+    background: #BE3144;
+  }
+  
+  
+  /* Floating Characters */
+  .floating-character {
+    position: absolute;
+    z-index: 5;
+  }
+  
+  .character-4 {
+    bottom: 30%;
+    left: 6.5%;
+    width: 260px; 
+  }
+  
+  .character-5 {
+    bottom: 5%;
+    right: 7%;
+    width: 260px; 
+  }
+  
+  .floating-character img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Existing styles above remain unchanged */
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .character-4 {
+    bottom: 35%;
+    left: 2%;
+    width: 160px;
+  }
+
+  .character-5 {
+    bottom: 10%;
+    right: 2%;
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .character-4,
+  .character-5 {
+    display: none; /* Hide floating characters on very small screens for better focus and less clutter */
+  }
+}

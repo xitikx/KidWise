@@ -1,0 +1,123 @@
+.story-selection-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #09122C, #872341);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.story-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.story-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.story-card:hover .story-thumbnail {
+    transform: scale(1.05);
+}
+
+.story-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Floating circles for background animation */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: float 10s infinite ease-in-out;
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 20%;
+    animation-duration: 8s;
+}
+
+/* .circle-2 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 70%;
+    animation-duration: 12s;
+} */
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 40%;
+    animation-duration: 10s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 30px 15px;
+    }
+
+    .story-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 10px;
+        gap: 5px;
+    }
+
+    .story-card {
+        margin: 20px;
+        padding: 12px;
+    }
+
+    .story-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .story-thumbnail {
+        border-radius: 8px;
+    }
+}

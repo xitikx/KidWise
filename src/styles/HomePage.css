@@ -1,0 +1,233 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100vw;
+    background: linear-gradient(135deg, #09122C, #872341);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative; /* Ensure child elements are positioned relative to this container */
+    overflow: hidden; /* Hides any extra content */
+    
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    gap: 20px; /* Adds spacing between elements */
+    max-width: 1200px; /* Prevent content from stretching too wide */
+    margin: 0 auto; /* Center the content */
+    position: relative; /* Ensure content is above background animations */
+    z-index: 1; /* Bring content above background circles */
+}
+
+.main-content h1 {
+    font-size: 2rem;
+    /* margin-bottom: 20px; */
+    margin-top: 100px;
+    z-index: 10;
+}
+
+/* Realm Modal */
+.realm-modal {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: 75%;
+    max-width: 850px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    gap: 20px; /* Add spacing between image and content */
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+/* Wizard Image in Modal */
+.realm-image {
+    width: 120px; /* Fixed size for the wizard image */
+    height: 120px;
+    object-fit: contain; /* Ensures the image fits within the container */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+/* Realm Content in Modal */
+.realm-content {
+    flex: 1;
+    text-align: left;
+}
+
+.realm-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.realm-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Explore Button in Modal */
+.explore-button {
+    background: #FFCC00;
+    color: #09122C;
+    border: none;
+    padding: 12px 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.explore-button:hover {
+    background: #FFD633;
+}
+
+/* Background Floating Animations */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: float 10s infinite ease-in-out;
+    z-index: 0; /* Ensure circles are behind content */
+}
+
+.circle-1 {
+    width: 180px;
+    height: 180px;
+    top: 10%;
+    left: 20%;
+    animation-duration: 8s;
+}
+
+.circle-2 {
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    left: 70%;
+    animation-duration: 12s;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 40%;
+    animation-duration: 10s;
+}
+
+.floating-character {
+    position: absolute;
+    z-index: 5;
+  }
+
+  .character-9 {
+    bottom: 7%;
+    left: 1%;
+    width: 340px; 
+  }
+/* Floating Effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+    .main-content {
+      padding: 16px;
+      gap: 16px;
+    }
+  
+    .main-content h1 {
+      font-size: 1.6rem;
+      margin-top: 80px;
+    }
+  
+    .realm-modal {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      width: 90%;
+    }
+  
+    .realm-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .realm-content {
+      text-align: center;
+    }
+  
+    .realm-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .realm-content p {
+      font-size: 1rem;
+    }
+  
+    .explore-button {
+      font-size: 1rem;
+      padding: 10px 16px;
+      width: 100%;
+      max-width: 250px;
+    }
+  
+    .character-9 {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0%;
+        width: 180px;
+      }
+  }
+  
+  /* Phones and extra small screens */
+  @media (max-width: 480px) {
+    .main-content h1 {
+      font-size: 1.4rem;
+      margin-top: 100px;
+    }
+  
+    .realm-modal {
+      padding: 20px;
+      gap: 15px;
+    }
+  
+    .realm-image {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .realm-content h2 {
+      font-size: 1.3rem;
+    }
+  
+    .realm-content p {
+      font-size: 0.95rem;
+    }
+  
+    .explore-button {
+      font-size: 0.95rem;
+      padding: 10px 14px;
+    }
+  
+    .character-9 {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 0%;
+        width: 180px;
+      }
+  }
+  
