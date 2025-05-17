@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# KidWise - A Magical Storytelling App for Kids
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+KidWise is an interactive storytelling web application designed for kids, featuring a whimsical UI with animated backgrounds, floating robot characters, and a robust story generation pipeline powered by a sophisticated AWS backend. Built with React on the frontend, KidWise leverages a suite of AWS services to generate engaging stories, images, and audio based on user-selected prompts like "A Space Adventure" or "The Brave Knight." The stories are generated using Gemini, images are created using Stable Diffusion 3.5 Large via the Hugging Face API (`https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large`), and audio is synthesized using AWS Polly. AWS Step Functions orchestrates the entire pipeline through four dedicated Lambda functions—`GenerateStoryLambda`, `GenerateImageLambda`, `GenerateAudioLambda`, and `ValidateOutputLambda`—alongside API Gateway, S3 storage, and Polly for audio synthesis, while AWS Cognito ensures secure user authentication with OIDC integration, delivering a delightful experience for young users.
 
-## Available Scripts
+## Features
+- **Interactive Story Selection**: Choose from a variety of story prompts displayed as animated cards, with selections triggering the AWS backend pipeline.
+- **Dynamic Story Display**: Stories are split into parts (Beginning, Middle, Climax, End), each with accompanying images and audio, all generated and delivered through AWS services.
+- **Whimsical UI**: Dark gradient background, floating circles, and playful robot characters animated with Framer Motion, creating a magical frontend experience.
+- **Secure Authentication**: AWS Cognito provides robust user authentication with OIDC integration, ensuring secure access to the app.
+- **Powerful AWS Backend Pipeline**: AWS Step Functions orchestrates the entire workflow, coordinating four Lambda functions: `GenerateStoryLambda` (for story generation via Gemini), `GenerateImageLambda` (for image generation via Stable Diffusion 3.5 Large), `GenerateAudioLambda` (for audio synthesis via AWS Polly), and `ValidateOutputLambda` (for validating and formatting the outputs). AWS API Gateway handles secure API requests, and generated assets are stored in AWS S3 buckets (`store-images-kidwise` for images and `store-audios-kidwise` for audio).
+- **Responsive Design**: Fully responsive UI that works on desktops, tablets, and mobile devices, seamlessly integrated with the AWS backend.
 
-In the project directory, you can run:
+## Tech Stack
+- **Frontend**:
+  - React.js (for building the UI)
+  - React Router (for navigation between pages)
+  - Framer Motion (for animations like floating circles and robots)
+  - React OIDC Context (for AWS Cognito authentication)
+  - Axios (for making API calls to the AWS backend)
+- **AWS Backend**:
+  - **AWS Step Functions**: Orchestrates the story generation pipeline by coordinating multiple AWS services in a serverless workflow.
+  - **AWS Lambda**: Executes four serverless functions to handle the pipeline:
+    - `GenerateStoryLambda`: Generates the story text using Gemini.
+    - `GenerateImageLambda`: Creates images for each story part using Stable Diffusion 3.5 Large via the Hugging Face API.
+    - `GenerateAudioLambda`: Synthesizes audio for each story part using AWS Polly.
+    - `ValidateOutputLambda`: Validates the outputs (story, images, audio) and formats them for delivery.
+  - **AWS API Gateway**: Provides a secure API endpoint (`https://ydrr43po2d.execute-api.us-east-1.amazonaws.com/prod/generate-story`) to trigger the Step Functions workflow.
+  - **AWS S3**: Stores generated images in the `store-images-kidwise` bucket and audio files in the `store-audios-kidwise` bucket, ensuring scalable and reliable storage.
+  - **AWS Cognito**: Manages user authentication with OIDC integration, providing secure access control for the app.
+  - **AWS Polly**: Synthesizes high-quality audio from story text, creating an immersive listening experience for each story part.
+- **AI Services**:
+  - Gemini (story generation)
+  - Stable Diffusion 3.5 Large via Hugging Face API (`https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large`) (image generation)
+- **Other**:
+  - AWS SDK for JavaScript (for interacting with Step Functions in the frontend)
+  - Environment variables (via `.env` for local development)
 
-### `npm start`
+## Usage
+1. **Sign In**: Use your Cognito credentials to log in, securely authenticated via AWS Cognito.
+2. **Select a Story**: On the Story Selection page, click a story card (e.g., "The Brave Knight") to trigger the AWS backend pipeline.
+3. **View the Story**: The AWS Step Functions workflow, powered by the four Lambda functions (`GenerateStoryLambda`, `GenerateImageLambda`, `GenerateAudioLambda`, `ValidateOutputLambda`), will generate the story (via Gemini), images (via Stable Diffusion 3.5 Large), and audio (via AWS Polly), then display the results with navigation buttons to cycle through story parts (Beginning, Middle, Climax, End).
+4. **Listen and Explore**: Use the "Listen to Story" button to play audio for each part (synthesized by AWS Polly), and enjoy the animated UI with floating robots.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ by [Your Name]
