@@ -8,7 +8,7 @@ KidWise is an interactive storytelling web application designed for kids, featur
 - **Dynamic Story Display**: Stories are split into parts (Beginning, Middle, Climax, End), each with accompanying images and audio, all generated and delivered through AWS services.
 - **Whimsical UI**: Dark gradient background, floating circles, and playful robot characters animated with Framer Motion, creating a magical frontend experience.
 - **Secure Authentication**: AWS Cognito provides robust user authentication with OIDC integration, ensuring secure access to the app.
-- **Powerful AWS Backend Pipeline**: AWS Step Functions orchestrates the entire workflow, coordinating four Lambda functions: `GenerateStoryLambda` (for story generation via Gemini), `GenerateImageLambda` (for image generation via Stable Diffusion 3.5 Large), `GenerateAudioLambda` (for audio synthesis via AWS Polly), and `ValidateOutputLambda` (for validating and formatting the outputs). AWS API Gateway handles secure API requests, and generated assets are stored in AWS S3 buckets (`store-images-kidwise` for images and `store-audios-kidwise` for audio).
+- **Powerful AWS Backend Pipeline**: AWS Step Functions orchestrates the entire workflow, coordinating four Lambda functions: `StoryGeneratorLambda` (for story generation via Gemini), `ImageGeneratorLambda` (for image generation via Stable Diffusion 3.5 Large), `AudioGeneratorLambda` (for audio synthesis via AWS Polly), and `ParseStoryOutput` (for validating and formatting the outputs). AWS API Gateway handles secure API requests, and generated assets are stored in AWS S3 buckets (`store-images-kidwise` for images and `store-audios-kidwise` for audio).
 - **Responsive Design**: Fully responsive UI that works on desktops, tablets, and mobile devices, seamlessly integrated with the AWS backend.
 
 ## Tech Stack
@@ -21,11 +21,11 @@ KidWise is an interactive storytelling web application designed for kids, featur
 - **AWS Backend**:
   - **AWS Step Functions**: Orchestrates the story generation pipeline by coordinating multiple AWS services in a serverless workflow.
   - **AWS Lambda**: Executes four serverless functions to handle the pipeline:
-    - `GenerateStoryLambda`: Generates the story text using Gemini.
-    - `GenerateImageLambda`: Creates images for each story part using Stable Diffusion 3.5 Large via the Hugging Face API.
-    - `GenerateAudioLambda`: Synthesizes audio for each story part using AWS Polly.
-    - `ValidateOutputLambda`: Validates the outputs (story, images, audio) and formats them for delivery.
-  - **AWS API Gateway**: Provides a secure API endpoint (`https://ydrr43po2d.execute-api.us-east-1.amazonaws.com/prod/generate-story`) to trigger the Step Functions workflow.
+    - `StoryGeneratorLambda`: Generates the story text using Gemini.
+    - `ImageGeneratorLambda`: Creates images for each story part using Stable Diffusion 3.5 Large via the Hugging Face API.
+    - `AudioGeneratorLambda`: Synthesizes audio for each story part using AWS Polly.
+    - `ParseStoryOutput`: Validates the outputs (story, images, audio) and formats them for delivery.
+  - **AWS API Gateway**: Provides a secure API endpoint to trigger the Step Functions workflow.
   - **AWS S3**: Stores generated images in the `store-images-kidwise` bucket and audio files in the `store-audios-kidwise` bucket, ensuring scalable and reliable storage.
   - **AWS Cognito**: Manages user authentication with OIDC integration, providing secure access control for the app.
   - **AWS Polly**: Synthesizes high-quality audio from story text, creating an immersive listening experience for each story part.
@@ -44,4 +44,4 @@ KidWise is an interactive storytelling web application designed for kids, featur
 
 ---
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Ritika Sharma
